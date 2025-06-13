@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<style>
+  .watermark {
+    background-image: url("{% static 'images/student-watermark.webp' %}");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .dashboard-container {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<div class="position-relative">
+  <div class="watermark"></div>
+
+  <div class="dashboard-container">
+    <h2 class="text-center">Welcome to School Management System</h2>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Students</h5>
+            <p class="card-text">{{ students }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Teachers</h5>
+            <p class="card-text">{{ teachers }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-info mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Classrooms</h5>
+            <p class="card-text">{{ classes }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

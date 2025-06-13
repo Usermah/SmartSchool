@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Classrooms{% endblock %}
+{% block content %}
+<h2>Classrooms</h2>
+<table class="table table-bordered">
+  <thead><tr><th>Name</th><th>Class Teacher</th><th>Timetable</th></tr></thead>
+  <tbody>
+    {% for room in classrooms %}
+      <tr>
+        <td>{{ room.name }}</td>
+        <td>{{ room.class_teacher.name }}</td>
+        <td><a href="{% url 'timetable' room.id %}" class="btn btn-info btn-sm">View Timetable</a></td>
+        <td><a href="{% url 'students_in_class' room.id %}">{{ room.name }}</a></td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
